@@ -1,0 +1,79 @@
+unltd-platform/
+├── app/
+│   ├── layout.tsx
+│   ├── globals.css
+│   │
+│   ├── api/
+│   │   ├── auth/
+│   │   │   ├── login/route.ts
+│   │   │   ├── register/route.ts
+│   │   │   └── me/route.ts
+│   │   │
+│   │   ├── exercises/
+│   │   │   ├── route.ts          # POST (create), GET (list)
+│   │   │   ├── [id]/route.ts     # GET, PUT, DELETE (soft delete)
+│   │   │
+│   │   ├── workout-templates/
+│   │   │   ├── route.ts          # GET list, POST create template
+│   │   │   ├── [id]/route.ts     # GET template details
+│   │   │   └── [id]/exercises/route.ts  # POST attach exercise
+│   │   │
+│   │   ├── programs/
+│   │   │   ├── route.ts          # GET list, POST create program
+│   │   │   ├── [id]/route.ts     # GET program details
+│   │   │   ├── [id]/weeks/route.ts         # POST add weeks
+│   │   │   └── weeks/[id]/workouts/route.ts # POST attach workouts
+│   │   │
+│   │   ├── assignments/
+│   │   │   └── route.ts          # Assign program → generates sessions
+│   │   │
+│   │   ├── sessions/
+│   │   │   ├── [id]/route.ts     # GET session, PUT status updates
+│   │   │   └── [id]/logs/route.ts # POST logs (athlete)
+│   │   │
+│   │   └── athletes/
+│   │       ├── [id]/sessions/route.ts
+│   │       └── [id]/progress/route.ts
+│   │
+│   ├── coach/
+│   │   ├── layout.tsx
+│   │   ├── dashboard/page.tsx
+│   │   ├── calendar/page.tsx
+│   │   ├── athletes/page.tsx
+│   │   ├── programs/page.tsx
+│   │   └── exercises/page.tsx
+│   │
+│   ├── athlete/
+│   │   ├── layout.tsx
+│   │   ├── home/page.tsx
+│   │   ├── sessions/
+│   │   │   └── [id]/page.tsx
+│   │   └── history/page.tsx
+│   │
+│   └── page.tsx  # landing (optional)
+│
+├── components/
+│   ├── ui/           # shadcn
+│   ├── calendar/
+│   ├── forms/
+│   └── navigation/
+│
+├── lib/
+│   ├── db.ts         # Prisma or Supabase client
+│   ├── auth.ts
+│   ├── rbac.ts       # role-based access
+│   ├── validations/
+│   └── utils.ts
+│
+├── prisma/
+│   ├── schema.prisma
+│   └── migrations/   # auto-generated later
+│
+├── public/
+│   └── icons/
+│
+├── .env.example
+├── package.json
+├── tsconfig.json
+├── README.md
+└── next.config.mjs
